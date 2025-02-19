@@ -139,6 +139,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
       _controller = lib.ChewieController(
         autoPlay: widget.autoplay,
         looping: widget.loop,
+        showControlsOnInitialize: false,
         placeholder: placeholder,
         showControls: widget.controls,
         videoPlayerController: vpc,

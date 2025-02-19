@@ -26,6 +26,7 @@ class TagVideo {
           if (defaultTargetPlatform != TargetPlatform.android &&
               defaultTargetPlatform != TargetPlatform.iOS &&
               defaultTargetPlatform != TargetPlatform.macOS &&
+              defaultTargetPlatform != TargetPlatform.windows &&
               !kIsWeb) {
             // these are the player's supported platforms
             // https://pub.dev/packages/video_player/versions/2.8.1
