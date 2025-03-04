@@ -45,6 +45,8 @@ class VideoPlayer extends StatefulWidget {
   /// The widget to be shown before video is loaded.
   final Widget? poster;
 
+  final Function(lib.VideoPlayerController controller)? videoCallBack;
+
   /// Creates a player.
   const VideoPlayer(
     this.url, {
@@ -56,6 +58,7 @@ class VideoPlayer extends StatefulWidget {
     super.key,
     this.loadingBuilder,
     this.loop = false,
+        this.videoCallBack,
     this.poster,
   });
 
@@ -145,5 +148,13 @@ class _VideoPlayerState extends State<VideoPlayer> {
         videoPlayerController: vpc,
       );
     });
+    vpc.addListener(listener);
+    widget.videoCallBack?.call(vpc);
+  }
+
+  void listener() {
+    if(_controller!.videoPlayerController.value.isCompleted){
+      _controller!.videoPlayerController.seekTo(Duration.zero);
+    }
   }
 }

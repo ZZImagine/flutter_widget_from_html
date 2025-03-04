@@ -8,6 +8,7 @@ import 'package:flutter/material.dart'
 import 'package:flutter/widgets.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:logging/logging.dart';
+import 'package:video_player/video_player.dart';
 
 import 'core_data.dart';
 import 'core_helpers.dart';
@@ -45,6 +46,7 @@ class WidgetFactory extends WidgetFactoryResetter with AnchorWidgetFactory {
   BuildOp? _tagPre;
   TagTable? _tagTable;
   HtmlWidget? _widget;
+  void Function(VideoPlayerController videoPlayerController)? videoControllerCallBack;
 
   /// Builds [Align].
   Widget? buildAlign(
@@ -1138,6 +1140,7 @@ class WidgetFactory extends WidgetFactoryResetter with AnchorWidgetFactory {
 
     final widget = state.widget;
     _widget = widget is HtmlWidget ? widget : null;
+    videoControllerCallBack = _widget?.videoControllerCallBack;
   }
 
   /// Resolves full URL with [HtmlWidget.baseUrl] if available.

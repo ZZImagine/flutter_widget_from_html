@@ -39,6 +39,7 @@ class TagVideo {
             tree.videoData.urls.add(url);
           }
 
+
           return _buildPlayer(tree) ?? placeholder;
         },
         onVisitChild: (tree, subTree) {
@@ -76,6 +77,7 @@ class TagVideo {
       loop: attrs.containsKey(kAttributeVideoLoop),
       posterUrl: wf.urlFull(attrs[kAttributeVideoPoster] ?? ''),
       width: tryParseDoubleFromMap(attrs, kAttributeVideoWidth),
+      videoCallBack: wf.videoControllerCallBack
     );
   }
 }

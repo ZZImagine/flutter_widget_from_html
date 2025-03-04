@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+import 'package:video_player/video_player.dart' as lib;
 
 import 'internal/tag_video.dart';
 import 'video_player/video_player.dart';
@@ -18,6 +19,7 @@ mixin ChewieFactory on WidgetFactory {
     required bool loop,
     String? posterUrl,
     double? width,
+        Function(lib.VideoPlayerController controller)? videoCallBack,
   }) {
     final dimensOk = height != null && height > 0 && width != null && width > 0;
     final poster = posterUrl != null
@@ -35,6 +37,7 @@ mixin ChewieFactory on WidgetFactory {
           onLoadingBuilder(context, tree, null, url) ?? widget0,
       loop: loop,
       poster: poster,
+      videoCallBack: videoCallBack,
     );
   }
 

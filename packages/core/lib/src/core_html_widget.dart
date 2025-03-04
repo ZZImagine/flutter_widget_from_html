@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' as parser;
 import 'package:logging/logging.dart';
+import 'package:video_player/video_player.dart';
 
 import 'core_data.dart';
 import 'core_helpers.dart';
@@ -52,6 +53,7 @@ class HtmlWidget extends StatefulWidget {
   /// The callback when user taps an image.
   final void Function(ImageMetadata imageMetadata)? onTapImage;
 
+  final void Function(VideoPlayerController videoPlayerController)? videoControllerCallBack;
   /// The callback when user taps a link.
   ///
   /// Returns `true` if the url has been handled,
@@ -105,6 +107,7 @@ class HtmlWidget extends StatefulWidget {
     this.onErrorBuilder,
     this.onLoadingBuilder,
     this.onTapImage,
+        this.videoControllerCallBack,
     this.onTapUrl,
     List<dynamic>? rebuildTriggers,
     this.renderMode = RenderMode.column,

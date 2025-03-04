@@ -28,6 +28,7 @@ class HtmlWidget extends core.HtmlWidget {
     super.rebuildTriggers,
     super.renderMode,
     super.textStyle,
+        super.videoControllerCallBack
   }) : super(factoryBuilder: factoryBuilder ?? _getEnhancedWf);
 
   static WidgetFactory _getEnhancedWf() => WidgetFactory();

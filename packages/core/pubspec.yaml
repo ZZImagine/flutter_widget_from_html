@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   html: ^0.15.0
   logging: ^1.0.0
+  video_player: ^2.2.9
 
 dev_dependencies:
   flutter_test:
@@ -22,6 +23,7 @@ dev_dependencies:
   mocktail: any
   mocktail_image_network: ^1.0.0
   test: any
+
 
 flutter:
   assets:
